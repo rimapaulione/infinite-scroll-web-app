@@ -1,23 +1,34 @@
 import { useState } from "react";
 import styles from "./CardItem.module.css";
+import { sliceTitle } from "../../utils/helpers";
+import Button from "./Button";
 
-function CardItem({ photo }) {
+function CardItem({ image }) {
   const [hovered, setHovered] = useState(false);
+
   return (
     <li
       className={styles.card}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img src={`${photo.image}`} alt={photo.name} className={styles.image} />
+      <img
+        src={`${image.src.original}`}
+        alt={image.alt}
+        className={styles.image}
+      />
 
       {hovered && (
         <div className={styles.overlay}>
           <div>
-            <h1>{photo.name}</h1>
-            <h2>{photo.author}</h2>
+            <h1>
+              {image.alt.length === 0
+                ? "Photo of nature"
+                : sliceTitle(image.alt, 3)}
+            </h1>
+            <h2>{image.photographer}</h2>
           </div>
-          <button className={styles.button}>Favorite</button>
+          <Button className={styles.button}>Favorite</Button>
         </div>
       )}
     </li>

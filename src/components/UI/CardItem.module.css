@@ -1,7 +1,7 @@
 .card {
   position: relative;
   min-width: 20rem;
-  min-height: 15rem;
+  min-height: 20rem;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -10,7 +10,7 @@
   justify-content: center;
   color: white;
   text-align: center;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -36,14 +36,8 @@ h2 {
   font-style: italic;
 }
 .button {
-  margin-bottom: 1rem;
-  padding: 1rem 2rem;
-  font-weight: 400;
-  font-size: 20px;
   background-color: transparent;
-  border-radius: 3rem;
   color: inherit;
-  border: 1px solid white;
 }
 
 .image {
@@ -55,9 +49,10 @@ h2 {
   object-fit: cover;
 }
 .overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

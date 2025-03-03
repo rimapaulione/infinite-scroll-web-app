@@ -3,7 +3,7 @@ import styled from "./Header.module.css";
 function Header() {
   return (
     <header className={styled.header}>
-      <h1>Frontend Homework </h1>
+      <h3>Frontend Homework </h3>
     </header>
   );
 }

@@ -1,8 +1,13 @@
 .cards {
   list-style: none;
-  margin: 0 auto;
   padding: 7rem 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 2rem;
+  gap: 3rem;
+}
+.error {
+  margin: 0 auto;
+  width: fit-content;
+  padding: 7rem 2rem;
+  color: red;
 }

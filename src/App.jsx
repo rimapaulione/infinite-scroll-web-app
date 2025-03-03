@@ -1,5 +1,5 @@
 import Cards from "./components/UI/Cards";
-import Header from "./components/UI/Layout/Header";
+import Header from "./components/UI/Header";
 
 function App() {
   return (
