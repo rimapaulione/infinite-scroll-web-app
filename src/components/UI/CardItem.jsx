@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./CardItem.module.css";
+import styles from "./CardItem.module.scss";
 import { sliceTitle } from "../../utils/helpers";
 import Button from "./Button";
 

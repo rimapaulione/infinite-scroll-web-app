@@ -1,7 +1,7 @@
 import { useFetchImages } from "../hooks/useFetchImages";
 import Button from "./Button";
 import CardItem from "./CardItem";
-import styles from "./Cards.module.css";
+import styles from "./Cards.module.scss";
 import Error from "./Error";
 
 function Cards() {
@@ -18,7 +18,7 @@ function Cards() {
       </ul>
 
       <Button
-        className="color: red"
+        isCenter={true}
         onClick={() => {
           loadMore();
         }}

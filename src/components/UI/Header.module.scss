@@ -1,0 +1,19 @@
+$header-bg-color: rgb(237, 233, 235);
+$header-height: 5rem;
+$header-padding: 10%;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  background-color: $header-bg-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $header-padding;
+  box-shadow: $box-shadow;
+  z-index: 10;
+}
