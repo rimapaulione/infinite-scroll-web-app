@@ -2,16 +2,12 @@ import { useFetchImages } from "../hooks/useFetchImages";
 import Button from "./Button";
 import CardItem from "./CardItem";
 import styles from "./Cards.module.css";
+import Error from "./Error";
 
 function Cards() {
   const { images, loading, error, loadMore } = useFetchImages();
 
-  if (error)
-    return (
-      <div className={styles.error}>
-        <p>Error: {error}</p>
-      </div>
-    );
+  if (error) return <Error message={error} />;
 
   return (
     <>
@@ -22,6 +18,7 @@ function Cards() {
       </ul>
 
       <Button
+        className="color: red"
         onClick={() => {
           loadMore();
         }}

@@ -16,6 +16,7 @@ function CardItem({ image }) {
         src={`${image.src.original}`}
         alt={image.alt}
         className={styles.image}
+        loading="lazy"
       />
 
       {hovered && (
