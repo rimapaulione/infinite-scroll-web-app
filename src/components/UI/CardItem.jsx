@@ -13,8 +13,10 @@ function CardItem({ image }) {
       onMouseLeave={() => setHovered(false)}
     >
       <img
-        src={`${image.src.original}`}
-        alt={image.alt}
+        src={image.src.small}
+        srcSet={`${image.src.medium} 768w, ${image.src.large} 1024w`}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        alt={image.alt ? image.alt : "Image"}
         className={styles.image}
         loading="lazy"
       />
