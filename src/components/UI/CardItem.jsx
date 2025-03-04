@@ -5,6 +5,11 @@ import Button from "./Button";
 
 function CardItem({ image, onToggleFavourite, isFavorite }) {
   const [hovered, setHovered] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setLoaded(true);
+  };
 
   return (
     <li
@@ -13,12 +18,17 @@ function CardItem({ image, onToggleFavourite, isFavorite }) {
       onMouseLeave={() => setHovered(false)}
     >
       <img
-        src={image.src.small}
-        srcSet={`${image.src.medium} 768w, ${image.src.large} 1024w`}
+        src={image.src.tiny}
+        srcSet={`${image.src.small} 300w,${image.src.medium} 768w, ${image.src.large} 1024w`}
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         alt={image.alt ? image.alt : "Image"}
         className={styles.image}
         loading="lazy"
+        style={{
+          filter: loaded ? "none" : "blur(10px)",
+          transition: "filter 0.5s ease-in-out",
+        }}
+        onLoad={handleImageLoad}
       />
 
       {hovered && (

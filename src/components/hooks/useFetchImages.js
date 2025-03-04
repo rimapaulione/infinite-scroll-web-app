@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 const URL = "https://api.pexels.com/v1/search?query=nature";
 const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
-export function useFetchImages(perPage = 12) {
+export function useFetchImages(perPage = 22) {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
