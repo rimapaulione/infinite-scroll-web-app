@@ -3,7 +3,7 @@ import styles from "./CardItem.module.scss";
 import { sliceTitle } from "../../utils/helpers";
 import Button from "./Button";
 
-function CardItem({ image }) {
+function CardItem({ image, onToggleFavourite, isFavorite }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -31,7 +31,9 @@ function CardItem({ image }) {
             </h1>
             <h2>{image.photographer}</h2>
           </div>
-          <Button className={styles.button}>Favorite</Button>
+          <Button onClick={() => onToggleFavourite(image.id)}>
+            {isFavorite ? "Unfavorite" : "Favorite"}
+          </Button>
         </div>
       )}
     </li>

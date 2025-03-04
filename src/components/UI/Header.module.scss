@@ -1,6 +1,6 @@
-$header-bg-color: rgb(237, 233, 235);
+$header-bg-color: rgba(224, 224, 224, 0.9);
 $header-height: 5rem;
-$header-padding: 10%;
+$header-padding: 2%;
 $box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 
 .header {
@@ -13,7 +13,8 @@ $box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 $header-padding;
+  align-self: center;
+  padding: $header-padding;
   box-shadow: $box-shadow;
   z-index: 10;
 }
