@@ -6,7 +6,7 @@ import styles from "./Cards.module.scss";
 import Error from "./Error";
 
 function Cards() {
-  const { images, loading, error, loadMore } = useFetchImages();
+  const { images, isLoading, error, loadMore } = useFetchImages();
 
   const getFavourities = () => {
     const stored = localStorage.getItem("favourities");
@@ -32,8 +32,6 @@ function Cards() {
     });
   }, []);
 
-  if (error) return <Error message={error} />;
-
   return (
     <>
       <ul className={styles.cards}>
@@ -53,8 +51,10 @@ function Cards() {
           loadMore();
         }}
       >
-        {loading ? "Loading..." : "Load more"}
+        {isLoading ? "Loading..." : "Load more"}
       </Button>
+
+      {error && <Error message={error} />}
     </>
   );
 }

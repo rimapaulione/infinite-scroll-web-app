@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className={styled.header}>
       <h3>Frontend Homework </h3>
-      <Button>Get Favorities</Button>
+      <Button>Get Favourities</Button>
     </header>
   );
 }
