@@ -3,7 +3,7 @@ import { sliceTitle } from "../../utils/helpers";
 import Button from "./Layout/Button";
 import { useState } from "react";
 
-function CardItem({ image, isFavorite, toggleFavorite }) {
+function CardItem({ image, isFavorite, toggleFavorite, ref }) {
   const [hovered, setHovered] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -13,6 +13,7 @@ function CardItem({ image, isFavorite, toggleFavorite }) {
 
   return (
     <li
+      ref={ref}
       className={styles.card}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
