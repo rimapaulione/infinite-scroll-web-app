@@ -4,3 +4,8 @@ export function sliceTitle(title, wordNum = 3) {
     ? words.slice(0, wordNum).join(" ") + "..."
     : title;
 }
+
+export const getFavourites = () => {
+  const stored = localStorage.getItem("favourites");
+  return stored ? JSON.parse(stored) : [];
+};

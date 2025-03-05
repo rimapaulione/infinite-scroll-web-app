@@ -1,32 +1,30 @@
-$header-bg-color: rgba(224, 224, 224, 0.9);
-$header-height: 7rem;
-$header-padding: 5%;
-$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-
 .header {
+  font-size: var(--font-size-small);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: $header-height;
-  background-color: $header-bg-color;
+  height: 7rem;
+  background-color: var(--header-bg-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   align-self: center;
   gap: 0.5rem;
-  padding: $header-padding;
-  box-shadow: $box-shadow;
+  padding: 1.5rem 3rem;
+  box-shadow: var(--box-shadow);
   z-index: 10;
   @media (min-width: 768px) {
     flex-direction: row;
     padding: 1rem 5rem;
     height: 5rem;
+    font-size: var(--font-size-medium);
   }
   @media (min-width: 1024px) {
     flex-direction: row;
     padding: 2rem 10rem;
     height: 6rem;
+    font-size: var(--font-size-large);
   }
 }

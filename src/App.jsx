@@ -1,14 +1,16 @@
+import { FavoritesProvider } from "./components/store/FavoritesProvider";
 import Cards from "./components/UI/Cards";
 import Header from "./components/UI/Header";
+import Main from "./components/UI/Layout/Main";
 
 function App() {
   return (
-    <>
+    <FavoritesProvider>
       <Header />
-      <main>
+      <Main>
         <Cards />
-      </main>
-    </>
+      </Main>
+    </FavoritesProvider>
   );
 }
 

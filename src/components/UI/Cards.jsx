@@ -1,60 +1,50 @@
-import { useCallback, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useFetchImages } from "../hooks/useFetchImages";
-import Button from "./Button";
+import Button from "./Layout/Button";
 import CardItem from "./CardItem";
 import styles from "./Cards.module.scss";
-import Error from "./Error";
+import Error from "./Message";
+import { FavoritesContext } from "../store/FavoritesContext";
+import { useFavorites } from "../hooks/useFavorites";
+import Message from "./Message";
 
 function Cards() {
   const { images, isLoading, error, loadMore } = useFetchImages();
+  const { showFavorites } = useContext(FavoritesContext);
+  const { favorites, toggleFavorite } = useFavorites();
 
-  const getFavourities = () => {
-    const stored = localStorage.getItem("favourities");
-    return stored ? JSON.parse(stored) : [];
-  };
-
-  const [favourities, setFavourities] = useState(getFavourities);
-
-  useEffect(() => {
-    localStorage.setItem("favourities", JSON.stringify(favourities));
-  }, [favourities]);
-
-  const toggleFavouriteHandler = useCallback((imageId) => {
-    setFavourities((prevFavourities) => {
-      if (prevFavourities.includes(imageId)) {
-        return prevFavourities.filter((id) => id !== imageId);
-      } else {
-        if (prevFavourities.some((favourity) => favourity.id === imageId)) {
-          return prevFavourities;
-        }
-        return [...prevFavourities, imageId];
-      }
-    });
-  }, []);
+  const content = showFavorites
+    ? images.filter((image) => favorites.includes(image.id))
+    : images;
 
   return (
     <>
+      {showFavorites && content.length === 0 && (
+        <Message message="You do not have favorite images!" />
+      )}
       <ul className={styles.cards}>
-        {images.map((image) => (
+        {content.map((image) => (
           <CardItem
             key={image.id}
             image={image}
-            onToggleFavourite={toggleFavouriteHandler}
-            isFavorite={favourities.includes(image.id)}
+            isFavorite={favorites.includes(image.id)}
+            toggleFavorite={toggleFavorite}
           />
         ))}
       </ul>
 
-      <Button
-        isCenter={true}
-        onClick={() => {
-          loadMore();
-        }}
-      >
-        {isLoading ? "Loading..." : "Load more"}
-      </Button>
+      {!showFavorites && (
+        <Button
+          isCenter={true}
+          onClick={() => {
+            loadMore();
+          }}
+        >
+          {isLoading ? "Loading..." : error ? "Refresh" : "Load more"}
+        </Button>
+      )}
 
-      {error && <Error message={error} />}
+      {error && !showFavorites && <Message message={error} error={true} />}
     </>
   );
 }

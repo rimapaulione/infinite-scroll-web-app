@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styles from "./CardItem.module.scss";
 import { sliceTitle } from "../../utils/helpers";
-import Button from "./Button";
+import Button from "./Layout/Button";
+import { useState } from "react";
 
-function CardItem({ image, onToggleFavourite, isFavorite }) {
+function CardItem({ image, isFavorite, toggleFavorite }) {
   const [hovered, setHovered] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -26,6 +26,7 @@ function CardItem({ image, onToggleFavourite, isFavorite }) {
         loading="lazy"
         style={{
           filter: loaded ? "none" : "blur(10px)",
+          opacity: loaded ? 1 : 0,
           transition: "filter 0.5s ease-in-out",
         }}
         onLoad={handleImageLoad}
@@ -41,7 +42,7 @@ function CardItem({ image, onToggleFavourite, isFavorite }) {
             </h1>
             <h2>{image.photographer}</h2>
           </div>
-          <Button onClick={() => onToggleFavourite(image.id)}>
+          <Button onClick={() => toggleFavorite(image.id)}>
             {isFavorite ? "Unfavourite" : "Favourite"}
           </Button>
         </div>
