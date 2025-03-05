@@ -8,11 +8,11 @@ export function useFavorites() {
     localStorage.setItem("favourites", JSON.stringify(favorites));
   }, [favorites]);
 
-  const toggleFavorite = useCallback((imageId) => {
+  const toggleFavorite = useCallback((image) => {
     setFavourites((prev) =>
-      prev.includes(imageId)
-        ? prev.filter((id) => id !== imageId)
-        : [...prev, imageId]
+      prev.some((fav) => fav.id === image.id)
+        ? prev.filter((fav) => fav.id !== image.id)
+        : [...prev, image]
     );
   }, []);
   return { favorites, toggleFavorite };

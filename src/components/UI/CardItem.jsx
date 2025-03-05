@@ -43,7 +43,7 @@ function CardItem({ image, isFavorite, toggleFavorite, ref }) {
             </h1>
             <h2>{image.photographer}</h2>
           </div>
-          <Button onClick={() => toggleFavorite(image.id)}>
+          <Button onClick={() => toggleFavorite(image)}>
             {isFavorite ? "Unfavourite" : "Favourite"}
           </Button>
         </div>

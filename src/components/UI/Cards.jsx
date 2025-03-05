@@ -9,13 +9,11 @@ import { useFavorites } from "../hooks/useFavorites";
 import Message from "./Message";
 
 //TODO: when get back from favorites to all I start scrolling from first image
-//TODO: if I liked photo, but it is not in firts page, I can not see in favorites
 
 function Cards() {
   const { images, isLoading, error, loadMore } = useFetchImages();
   const { showFavorites } = useContext(FavoritesContext);
   const { favorites, toggleFavorite } = useFavorites();
-  console.log(favorites);
 
   const observer = useRef();
   const lastImage = useCallback(
@@ -31,10 +29,9 @@ function Cards() {
     },
     [isLoading, loadMore, error]
   );
-
-  const content = showFavorites
-    ? images.filter((image) => favorites.includes(image.id))
-    : images;
+  console.log(images);
+  console.log(favorites);
+  const content = showFavorites ? favorites : images;
 
   return (
     <>
@@ -49,7 +46,7 @@ function Cards() {
                 ref={lastImage}
                 key={image.id}
                 image={image}
-                isFavorite={favorites.includes(image.id)}
+                isFavorite={favorites.some((fav) => fav.id === image.id)}
                 toggleFavorite={toggleFavorite}
               />
             );
@@ -58,7 +55,7 @@ function Cards() {
             <CardItem
               key={image.id}
               image={image}
-              isFavorite={favorites.includes(image.id)}
+              isFavorite={favorites.some((fav) => fav.id === image.id)}
               toggleFavorite={toggleFavorite}
             />
           );
