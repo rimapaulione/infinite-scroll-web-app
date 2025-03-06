@@ -1,11 +1,12 @@
 .button {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   font-weight: 300;
   background-color: transparent;
-  border-radius: 3rem;
+  border-radius: 2rem;
   color: inherit;
   border: 1px solid white;
   font-size: var(--font-size-small);
+
   &:hover {
     background-color: var(--hover-color);
     color: var(--darker-bg-color);

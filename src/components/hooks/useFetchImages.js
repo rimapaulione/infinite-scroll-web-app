@@ -6,6 +6,7 @@ const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 //TODO: check total_results from API and stop loading
 //TODO: save first page in local storage and use it if we got error (Internal Server Error)
 //TODO: error if request takes too long
+//TODO: Scrool up button
 
 export function useFetchImages(perPage = 12) {
   const [images, setImages] = useState([]);
@@ -32,7 +33,9 @@ export function useFetchImages(perPage = 12) {
 
         setImages((prevImages) => [...prevImages, ...data.photos]);
       } catch (err) {
-        setError(err.message);
+        //err.message send to Sentry
+        console.error(err);
+        setError(`Something went wrong!`);
       } finally {
         setIsLoading(false);
       }

@@ -1,14 +1,12 @@
-import { useCallback, useContext, useRef } from "react";
+import { useCallback, useContext, useMemo, useRef } from "react";
 import { useFetchImages } from "../hooks/useFetchImages";
-import Button from "./Layout/Button";
+import { useFavorites } from "../hooks/useFavorites";
+import { FavoritesContext } from "../store/FavoritesContext";
+import Button from "./Button";
 import CardItem from "./CardItem";
 import styles from "./Cards.module.scss";
-import Error from "./Message";
-import { FavoritesContext } from "../store/FavoritesContext";
-import { useFavorites } from "../hooks/useFavorites";
+import Error from "./Error";
 import Message from "./Message";
-
-//TODO: when get back from favorites to all I start scrolling from first image
 
 function Cards() {
   const { images, isLoading, error, loadMore } = useFetchImages();
@@ -29,51 +27,55 @@ function Cards() {
     },
     [isLoading, loadMore, error]
   );
-  console.log(images);
-  console.log(favorites);
-  const content = showFavorites ? favorites : images;
 
+  const content = useMemo(
+    () => (showFavorites ? favorites : images),
+    [showFavorites, favorites, images]
+  );
+
+  if (showFavorites && favorites.length === 0) {
+    return (
+      <Message>
+        <Button href="/"> Find your favorite photos</Button>{" "}
+      </Message>
+    );
+  }
   return (
     <>
-      {showFavorites && favorites.length === 0 && (
-        <Message message="You do not have favorite images!" />
-      )}
       <ul className={styles.cards}>
-        {content.map((image, index) => {
-          if (!showFavorites && content.length === index + 1) {
-            return (
-              <CardItem
-                ref={lastImage}
-                key={image.id}
-                image={image}
-                isFavorite={favorites.some((fav) => fav.id === image.id)}
-                toggleFavorite={toggleFavorite}
-              />
-            );
-          }
-          return (
-            <CardItem
-              key={image.id}
-              image={image}
-              isFavorite={favorites.some((fav) => fav.id === image.id)}
-              toggleFavorite={toggleFavorite}
-            />
-          );
-        })}
+        {content.map((image, index) => (
+          <CardItem
+            key={image.id}
+            ref={content.length - 1 === index ? lastImage : null}
+            image={image}
+            isFavorite={favorites.some((fav) => fav.id === image.id)}
+            toggleFavorite={toggleFavorite}
+          />
+        ))}
       </ul>
 
-      {!showFavorites && (
+      {!error && !showFavorites && (
         <Button
           isCenter={true}
           onClick={() => {
             loadMore();
           }}
         >
-          {isLoading ? "Loading..." : error ? "Refresh" : "Load more"}
+          {isLoading ? "Loading..." : "Load more"}
         </Button>
       )}
 
-      {error && !showFavorites && <Message message={error} error={true} />}
+      {error && !showFavorites && (
+        <Error message={error}>
+          <Button
+            onClick={() => {
+              loadMore();
+            }}
+          >
+            Retry
+          </Button>
+        </Error>
+      )}
     </>
   );
 }

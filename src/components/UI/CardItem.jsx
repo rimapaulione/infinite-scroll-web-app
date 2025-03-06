@@ -1,6 +1,6 @@
 import styles from "./CardItem.module.scss";
 import { sliceTitle } from "../../utils/helpers";
-import Button from "./Layout/Button";
+import Button from "./Button";
 import { useState } from "react";
 
 function CardItem({ image, isFavorite, toggleFavorite, ref }) {
@@ -28,7 +28,7 @@ function CardItem({ image, isFavorite, toggleFavorite, ref }) {
         style={{
           filter: loaded ? "none" : "blur(10px)",
           opacity: loaded ? 1 : 0,
-          transition: "filter 0.5s ease-in-out",
+          transition: "filter 0.2s ease-in-out",
         }}
         onLoad={handleImageLoad}
       />

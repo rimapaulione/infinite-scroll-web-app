@@ -1,14 +1,13 @@
-import styles from "./Message.module.scss";
+import style from "./Message.module.scss";
 
-function Message({ message, error = false }) {
+function Message({ children }) {
   return (
-    <div
-      className={styles.error}
-      style={{
-        color: error ? "red" : "green",
-      }}
-    >
-      <p>{message}</p>
+    <div className={style.card}>
+      <img src="/no_favorite.png" />
+      <div className={style.container}>
+        <h1>No Favorites</h1>
+        {children}
+      </div>
     </div>
   );
 }
