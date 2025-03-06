@@ -1,4 +1,4 @@
-import styles from "./Error.module.scss";
+import styles from './Error.module.scss';
 
 function Error({ message, children }) {
   return (

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 
-const URL = "https://api.pexels.com/v1/search?query=nature";
+const URL = 'https://api.pexels.com/v1/search?query=nature';
 const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
 //TODO: check total_results from API and stop loading
@@ -22,11 +22,11 @@ export function useFetchImages(perPage = 12) {
 
         const response = await fetch(
           `${URL}&page=${currentPage}&per_page=${perPage}`,
-          { headers: { Authorization: API_KEY } }
+          { headers: { Authorization: API_KEY } },
         );
 
         if (!response.ok) {
-          throw new Error("Something went wrong with fetching images!");
+          throw new Error('Something went wrong with fetching images!');
         }
 
         const data = await response.json();
@@ -40,7 +40,7 @@ export function useFetchImages(perPage = 12) {
         setIsLoading(false);
       }
     },
-    [perPage]
+    [perPage],
   );
 
   useEffect(() => {

@@ -1,12 +1,12 @@
-import { useCallback, useContext, useMemo, useRef } from "react";
-import { useFetchImages } from "../hooks/useFetchImages";
-import { useFavorites } from "../hooks/useFavorites";
-import { FavoritesContext } from "../store/FavoritesContext";
-import Button from "./Button";
-import CardItem from "./CardItem";
-import styles from "./Cards.module.scss";
-import Error from "./Error";
-import Message from "./Message";
+import { useCallback, useContext, useMemo, useRef } from 'react';
+import { useFetchImages } from '../hooks/useFetchImages';
+import { useFavorites } from '../hooks/useFavorites';
+import { FavoritesContext } from '../store/FavoritesContext';
+import Button from './Button';
+import CardItem from './CardItem';
+import styles from './Cards.module.scss';
+import Error from './Error';
+import Message from './Message';
 
 function Cards() {
   const { images, isLoading, error, loadMore } = useFetchImages();
@@ -25,18 +25,18 @@ function Cards() {
       });
       if (node) observer.current.observe(node);
     },
-    [isLoading, loadMore, error]
+    [isLoading, loadMore, error],
   );
 
   const content = useMemo(
     () => (showFavorites ? favorites : images),
-    [showFavorites, favorites, images]
+    [showFavorites, favorites, images],
   );
 
   if (showFavorites && favorites.length === 0) {
     return (
       <Message>
-        <Button href="/"> Find your favorite photos</Button>{" "}
+        <Button href="/"> Find your favorite photos</Button>{' '}
       </Message>
     );
   }
@@ -61,7 +61,7 @@ function Cards() {
             loadMore();
           }}
         >
-          {isLoading ? "Loading..." : "Load more"}
+          {isLoading ? 'Loading...' : 'Load more'}
         </Button>
       )}
 

@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import Button from "./Button";
-import styled from "./Header.module.scss";
-import { FavoritesContext } from "../store/FavoritesContext";
+import { useContext } from 'react';
+import Button from './Button';
+import styled from './Header.module.scss';
+import { FavoritesContext } from '../store/FavoritesContext';
 
 function Header() {
   const { showFavorites, setShowFavorites } = useContext(FavoritesContext);
@@ -12,7 +12,7 @@ function Header() {
         <a href="/">Frontend Homework </a>
       </h3>
       <Button onClick={() => setShowFavorites((prev) => !prev)}>
-        {showFavorites ? "Show all photos" : "Show favorites"}
+        {showFavorites ? 'Show all photos' : 'Show favorites'}
       </Button>
     </header>
   );

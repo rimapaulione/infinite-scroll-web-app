@@ -1,7 +1,7 @@
-import styles from "./CardItem.module.scss";
-import { sliceTitle } from "../../utils/helpers";
-import Button from "./Button";
-import { useState } from "react";
+import styles from './CardItem.module.scss';
+import { sliceTitle } from '../../utils/helpers';
+import Button from './Button';
+import { useState } from 'react';
 
 function CardItem({ image, isFavorite, toggleFavorite, ref }) {
   const [hovered, setHovered] = useState(false);
@@ -22,13 +22,13 @@ function CardItem({ image, isFavorite, toggleFavorite, ref }) {
         src={image.src.tiny}
         srcSet={`${image.src.small} 300w,${image.src.medium} 768w, ${image.src.large} 1024w`}
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        alt={image.alt ? image.alt : "Image"}
+        alt={image.alt ? image.alt : 'Image'}
         className={styles.image}
         loading="lazy"
         style={{
-          filter: loaded ? "none" : "blur(10px)",
+          filter: loaded ? 'none' : 'blur(10px)',
           opacity: loaded ? 1 : 0,
-          transition: "filter 0.2s ease-in-out",
+          transition: 'filter 0.2s ease-in-out',
         }}
         onLoad={handleImageLoad}
       />
@@ -38,13 +38,13 @@ function CardItem({ image, isFavorite, toggleFavorite, ref }) {
           <div>
             <h1>
               {image.alt.length === 0
-                ? "Photo of nature"
+                ? 'Photo of nature'
                 : sliceTitle(image.alt, 3)}
             </h1>
             <h2>{image.photographer}</h2>
           </div>
           <Button onClick={() => toggleFavorite(image)}>
-            {isFavorite ? "Unfavourite" : "Favourite"}
+            {isFavorite ? 'Unfavourite' : 'Favourite'}
           </Button>
         </div>
       )}

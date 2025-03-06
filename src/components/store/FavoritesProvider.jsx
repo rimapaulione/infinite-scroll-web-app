@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FavoritesContext } from "./FavoritesContext";
+import { useState } from 'react';
+import { FavoritesContext } from './FavoritesContext';
 
 export function FavoritesProvider({ children }) {
   const [showFavorites, setShowFavorites] = useState(false);
