@@ -1,7 +1,7 @@
 import { useCallback, useContext, useMemo, useRef } from 'react';
 import { useFetchImages } from '../hooks/useFetchImages';
-import { useFavorites } from '../hooks/useFavorites';
-import { FavoritesContext } from '../store/FavoritesContext';
+import { useFavourites } from '../hooks/useFavourites';
+import { FavouritesContext } from '../store/FavouritesContext';
 import Button from './Button';
 import CardItem from './CardItem';
 import styles from './Cards.module.scss';
@@ -10,8 +10,8 @@ import Message from './Message';
 
 function Cards() {
   const { images, isLoading, error, loadMore } = useFetchImages();
-  const { showFavorites } = useContext(FavoritesContext);
-  const { favorites, toggleFavorite } = useFavorites();
+  const { showFavourites } = useContext(FavouritesContext);
+  const { favourites, toggleFavourite } = useFavourites();
 
   const observer = useRef();
   const lastImage = useCallback(
@@ -29,14 +29,14 @@ function Cards() {
   );
 
   const content = useMemo(
-    () => (showFavorites ? favorites : images),
-    [showFavorites, favorites, images],
+    () => (showFavourites ? favourites : images),
+    [showFavourites, favourites, images],
   );
 
-  if (showFavorites && favorites.length === 0) {
+  if (showFavourites && favourites.length === 0) {
     return (
       <Message>
-        <Button href="/"> Find your favorite photos</Button>{' '}
+        <Button href="/"> Find your favourite photos</Button>{' '}
       </Message>
     );
   }
@@ -48,13 +48,13 @@ function Cards() {
             key={image.id}
             ref={content.length - 1 === index ? lastImage : null}
             image={image}
-            isFavorite={favorites.some((fav) => fav.id === image.id)}
-            toggleFavorite={toggleFavorite}
+            isFavourite={favourites.some((fav) => fav.id === image.id)}
+            toggleFavourite={toggleFavourite}
           />
         ))}
       </ul>
 
-      {!error && !showFavorites && (
+      {!error && !showFavourites && (
         <Button
           isCenter={true}
           onClick={() => {
@@ -65,15 +65,9 @@ function Cards() {
         </Button>
       )}
 
-      {error && !showFavorites && (
+      {error && !showFavourites && (
         <Error message={error}>
-          <Button
-            onClick={() => {
-              loadMore();
-            }}
-          >
-            Retry
-          </Button>
+          <Button href="/">Retry</Button>
         </Error>
       )}
     </>

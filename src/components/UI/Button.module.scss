@@ -1,7 +1,7 @@
 .button {
   padding: 0.5rem;
   font-weight: 300;
-  background-color: inherit;
+  background-color: transparent;
   transition: filter 0.3s ease;
   border-radius: 2rem;
   color: inherit;
@@ -9,7 +9,7 @@
   font-size: var(--font-size-small);
 
   &:hover {
-    filter: brightness(1.2);
+    background-color: white;
     color: var(--overlay-bg-color);
     border-color: var(--darker-bg-color);
     cursor: pointer;

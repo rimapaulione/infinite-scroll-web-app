@@ -1,23 +1,21 @@
-import React from 'react';
-
 import { render, screen } from '@testing-library/react';
 import App from '../../src/App';
-import { expect } from 'vitest';
 
-test('renders header with title ', () => {
-  render(<App />);
-  const header = screen.getByRole('heading', { level: 1 });
-  expect(header).toHaveTextContent('Frontend Homework');
-});
-
-test('renders cards ul', () => {
-  render(<App />);
-  const cards = screen.getByRole('list');
-  expect(cards).toBeInTheDocument();
-});
-
-test('renders main', () => {
-  render(<App />);
-  const main = screen.getByRole('main');
-  expect(main).toBeInTheDocument();
+describe('App', () => {
+  it('should render heading with title Frontend Homework', () => {
+    render(<App />);
+    const header = screen.getByRole('heading', { name: /Frontend Homework/i });
+    expect(header).toBeInTheDocument();
+    expect(header).toHaveTextContent('Frontend Homework');
+  });
+  it('renders cards ul', () => {
+    render(<App />);
+    const cards = screen.getByRole('list');
+    expect(cards).toBeInTheDocument();
+  });
+  it('should render main', () => {
+    render(<App />);
+    const main = screen.getByRole('main');
+    expect(main).toBeInTheDocument();
+  });
 });

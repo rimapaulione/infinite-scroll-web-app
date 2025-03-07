@@ -3,7 +3,7 @@ import { sliceTitle } from '../../utils/helpers';
 import Button from './Button';
 import { useState } from 'react';
 
-function CardItem({ image, isFavorite, toggleFavorite, ref }) {
+function CardItem({ image, isFavourite, toggleFavourite, ref }) {
   const [hovered, setHovered] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -43,8 +43,8 @@ function CardItem({ image, isFavorite, toggleFavorite, ref }) {
             </h1>
             <h2>{image.photographer}</h2>
           </div>
-          <Button onClick={() => toggleFavorite(image)}>
-            {isFavorite ? 'Unfavourite' : 'Favourite'}
+          <Button onClick={() => toggleFavourite(image)}>
+            {isFavourite ? 'Unfavourite' : 'Favourite'}
           </Button>
         </div>
       )}

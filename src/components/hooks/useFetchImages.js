@@ -30,7 +30,6 @@ export function useFetchImages(perPage = 12) {
         }
 
         const data = await response.json();
-        console.log(data);
 
         setImages((prevImages) => [...prevImages, ...data.photos]);
       } catch (err) {
