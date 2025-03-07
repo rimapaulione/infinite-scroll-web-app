@@ -12,7 +12,6 @@ function Button({ children, onClick, isCenter, href, ...props }) {
       </a>
     );
   }
-
   return (
     <button onClick={onClick} className={buttonClass} {...props}>
       {children}

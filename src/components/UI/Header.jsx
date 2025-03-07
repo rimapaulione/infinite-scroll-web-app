@@ -8,9 +8,9 @@ function Header() {
 
   return (
     <header className={styled.header}>
-      <h3>
+      <h1>
         <a href="/">Frontend Homework </a>
-      </h3>
+      </h1>
       <Button onClick={() => setShowFavorites((prev) => !prev)}>
         {showFavorites ? 'Show all photos' : 'Show favorites'}
       </Button>

@@ -46,7 +46,8 @@
       font-style: italic;
     }
   }
-  @media (min-width: 768px) {
+
+  @media (width >= 768px) {
     box-shadow: var(--box-shadow);
     border-radius: 10px;
 
@@ -61,7 +62,7 @@
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .overlay {
       h1 {
         font-size: var(--font-size-extra-large);
@@ -73,6 +74,7 @@
       }
     }
   }
+
   .image {
     position: absolute;
     top: 0;

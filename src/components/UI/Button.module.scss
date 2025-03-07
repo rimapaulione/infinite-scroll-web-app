@@ -1,28 +1,31 @@
 .button {
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem;
   font-weight: 300;
-  background-color: transparent;
+  background-color: inherit;
+  transition: filter 0.3s ease;
   border-radius: 2rem;
   color: inherit;
   border: 1px solid white;
   font-size: var(--font-size-small);
 
   &:hover {
-    background-color: var(--hover-color);
-    color: var(--darker-bg-color);
+    filter: brightness(1.2);
+    color: var(--overlay-bg-color);
     border-color: var(--darker-bg-color);
     cursor: pointer;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     font-size: var(--font-size-medium);
     padding: 0.5rem 0.8rem;
   }
-  @media (min-width: 1024px) {
+
+  @media (width >= 1024px) {
     font-size: var(--font-size-large);
     padding: 0.8rem 1rem;
   }
 }
+
 .center {
   display: block;
   width: fit-content;
