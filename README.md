@@ -18,11 +18,11 @@ Project build as an entry for Vinted academy.
 - Favourites information saved to localstorage and loaded independently from main flow.
 - "Load more"" button added for old browsers where Observer API does not work
 
-## (To-Do)
+## To-Do list
 
-- API response caching for bandwitch saving.
+- API response caching for bandwith saving.
 - Scroll up button when top images are not seen.
-- More specific tests.
+- Add more tests.
 - Add logging solution like sentry for error catching and reporting.
 
 ## How to preview the website
