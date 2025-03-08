@@ -1,10 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CardItem from '../../src/components/UI/CardItem';
 import { expect } from 'vitest';
-import { useState } from 'react';
 
 describe('CardItem Component', () => {
-  it('shows list items with image', () => {
+  it('shows list item with image', () => {
     const mockImage = {
       src: { tiny: 'url', small: 'url', medium: 'url', large: 'url' },
       alt: 'Nature Photo',
@@ -56,7 +55,7 @@ describe('CardItem Component', () => {
     expect(screen.queryByText('John Doe')).not.toBeInTheDocument();
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
-  it('changes button text after click Favourite ', async () => {
+  it('changes button Favourite text after click  ', async () => {
     const mockToggleFavourite = vi.fn();
     const image = { id: 1, src: { tiny: 'url1' }, alt: 'Nature Photo 1' };
 
@@ -69,10 +68,12 @@ describe('CardItem Component', () => {
     );
 
     const cardItem = screen.getByRole('listitem');
-
     fireEvent.mouseEnter(cardItem);
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
 
-    const button = screen.getByText('Favourite');
+    expect(button).toHaveTextContent('Favourite');
+
     fireEvent.click(button);
 
     rerender(

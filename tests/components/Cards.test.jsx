@@ -1,4 +1,4 @@
-import { render, screen, act, fireEvent } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { useFavourites } from '../../src/components/hooks/useFavourites';
 import { useFetchImages } from '../../src/components/hooks/useFetchImages';
 import { FavouritesContext } from '../../src/components/store/FavouritesContext';
@@ -118,4 +118,6 @@ describe('Cards Component - Favourites', () => {
     expect(screen.getByText('Failed to load images')).toBeInTheDocument();
     expect(screen.getByText('Retry')).toBeInTheDocument();
   });
+
+  //TODO: test infinite scroll
 });

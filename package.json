@@ -6,15 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:css": "stylelint \"**/*.{css,scss}\"",
     "format": "prettier --write .",
-    "lint:format": "eslint . --fix && prettier --write .",
+    "lint:format": "eslint . --figit x && prettier --write .",
     "test": "vitest",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@vitejs/plugin-react-swc": "^3.8.0",
+    "eslint-plugin-react": "^7.37.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -27,7 +29,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitest/ui": "^3.0.8",
     "eslint": "^9.21.0",
-    "eslint-config-prettier": "^10.0.2",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",

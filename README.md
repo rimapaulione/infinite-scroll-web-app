@@ -1,12 +1,68 @@
-# React + Vite
+## About
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project build as an entry for Vinted academy.
 
-Currently, two official plugins are available:
+- Pexels API used for data retrieval.
+- Responsive design for 3 screen sizes.
+- Infinite scroll.
+- A possibility to favourite an item.
+- Main functions covered with tests.
+- Styling done with scss.
+- Lazy-loading images.
+- A responsive image solution.
+- Error handling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Bonus tasks
 
-## Expanding the ESLint configuration
+- Favourites page added.
+- Favourites information saved to localstorage and loaded independently from main flow.
+- "Load more"" button added for old browsers where Observer API does not work
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## (To-Do)
+
+- API response caching for bandwitch saving.
+- Scroll up button when top images are not seen.
+- More specific tests.
+- Add logging solution like sentry for error catching and reporting.
+
+## How to preview the website
+
+- Set up the environment (.env) file:
+
+  **Linux/mac:**
+  cp .env.example .env
+
+  **Windows:**
+  copy .env.example .env
+
+- Install dependencies:
+  **npm install --production**
+
+- Build:
+  **npm run build**
+
+- Run application from build:
+  **npm run preview**
+
+## Development mode
+
+- Run application in develop mode:
+
+- Install dependencies:
+  **npm install**
+
+- Run development mode
+  **npm run dev**
+
+- Run tests:
+  **npm run test**
+
+- Run tests with UI debug:
+  **npm run test:ui**
+
+## Tools used
+
+- [React 19](https://react.dev/)
+- [Vite 6](https://github.com/vitejs/vite)
+- [Vitest](https://vitest.dev/)
+- [Sass](https://github.com/sass/dart-sass)

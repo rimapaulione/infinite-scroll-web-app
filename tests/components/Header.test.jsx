@@ -9,9 +9,9 @@ describe('Header Component - button', () => {
         <Header />
       </FavouritesProvider>,
     );
-    screen.debug();
 
     const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
 
     expect(button).toHaveTextContent('Show favourites');
 

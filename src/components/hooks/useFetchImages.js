@@ -6,7 +6,7 @@ const API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 //TODO: check total_results from API and stop loading
 //TODO: save first page in local storage and use it if we got error (Internal Server Error)
 //TODO: error if request takes too long
-//TODO: Scrool up button
+//TODO: Scroll up button
 
 export function useFetchImages(perPage = 12) {
   const [images, setImages] = useState([]);
