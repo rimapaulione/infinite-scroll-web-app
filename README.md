@@ -44,6 +44,9 @@ Project build as an entry for Vinted academy.
 - Run application from build:
   **npm run preview**
 
+- The website should open with this link: 
+  **http://localhost:4173**
+
 ## Development mode
 
 - Run application in develop mode:

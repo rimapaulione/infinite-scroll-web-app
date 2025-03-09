@@ -13,6 +13,7 @@
   --font-size-medium: 1.1rem;
   --font-size-large: 1.5rem;
   --font-size-extra-large: 1.7rem;
+  --border-radius: 10px;
 }
 
 * {
@@ -25,6 +26,7 @@
 
 body {
   width: 100%;
+  overflow-y: scroll;
   min-height: 100vh;
   margin: 0 auto;
   font-family: var(--font-family);

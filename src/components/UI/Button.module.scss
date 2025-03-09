@@ -2,7 +2,6 @@
   padding: 0.5rem;
   font-weight: 300;
   background-color: transparent;
-  transition: filter 0.3s ease;
   border-radius: 2rem;
   color: inherit;
   border: 1px solid white;
@@ -10,7 +9,7 @@
   text-align: center;
 
   &:hover {
-    background-color: white;
+    background-color: var(--white-bg-color);
     color: var(--overlay-bg-color);
     border-color: var(--darker-bg-color);
     cursor: pointer;

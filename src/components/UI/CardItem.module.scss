@@ -3,8 +3,6 @@
   width: 100%;
   min-height: 18rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   overflow: hidden;
 
@@ -49,7 +47,7 @@
 
   @media (width >= 768px) {
     box-shadow: var(--box-shadow);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 
     .overlay {
       h1 {

@@ -1,7 +1,7 @@
 .card {
   background-color: var(--white-bg-color);
   box-shadow: var(--box-shadow);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   width: 70%;
   text-align: center;
   margin: 0 auto;

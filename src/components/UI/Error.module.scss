@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--box-shadow);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   font-size: var(--font-size-small);
   margin: 0 auto;
   padding: 1rem;
@@ -25,9 +25,12 @@
     justify-content: start;
     gap: 0.5rem;
   }
+  p {
+    text-align: center;
+  }
 
   @media (width >= 768px) {
-    font-size: var(--font-size-mwdium);
+    font-size: var(--font-size-medium);
     width: 70%;
     padding: 2rem;
     border-left: 2rem solid rgb(247 81 81);
@@ -35,9 +38,6 @@
 
   @media (width >= 1024px) {
     font-size: var(--font-size-large);
-  }
-
-  p {
-    text-align: center;
+    width: 50%;
   }
 }
